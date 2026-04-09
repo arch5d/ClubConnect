@@ -1,0 +1,16 @@
+[
+  {
+    "club_id": "club-1775548866434",
+    "name": "Graphic Geeks",
+    "description": "This club is for Coding Enthusiasts\n",
+    "category": "Technical",
+    "created_at": "2026-04-07 08:01:06.453039"
+  },
+  {
+    "club_id": "club-1775631174243",
+    "name": "ieee",
+    "description": "abcd",
+    "category": "Technical",
+    "created_at": "2026-04-08 06:52:54.557606"
+  }
+]

@@ -1,0 +1,21 @@
+[
+  {
+    "event_id": "evt-1775548945832",
+    "title": "CrossXHackathon",
+    "description": "This is a 24 Hour Hackathon",
+    "skills_required": [
+      "python"
+    ],
+    "goal_tags": [
+      "learn",
+      "network"
+    ],
+    "scope": "intra_college",
+    "capacity_band": "medium",
+    "capacity_limit": 30,
+    "registered_count": 0,
+    "registration_open_till": "2026-04-10 10:30:00+00:00",
+    "time_slot": "sat-10:00",
+    "club_id": "club-1775548866434"
+  }
+]

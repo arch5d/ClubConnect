@@ -1,0 +1,29 @@
+[
+  {
+    "student_id": "student-001",
+    "full_name": "Aarav Mehta",
+    "college": "Tech Valley Institute",
+    "contact": "aarav@student.edu",
+    "skills": [
+      "python",
+      "data_analysis"
+    ],
+    "interests": [
+      "hackathons",
+      "ai"
+    ],
+    "goals": [
+      "learn",
+      "build"
+    ],
+    "available_slots": [
+      "sat-10:00",
+      "sun-14:00",
+      "fri-18:00"
+    ],
+    "bio": "Passionate about algorithms and building impactful tech.",
+    "year": "3rd Year",
+    "department": "Computer Science",
+    "avatar_initials": "AM"
+  }
+]

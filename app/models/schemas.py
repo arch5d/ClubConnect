@@ -21,6 +21,20 @@ class StudentProfile(BaseModel):
     interests: list[str] = Field(default_factory=list)
     goals: list[Goal] = Field(default_factory=list)
     available_slots: list[str] = Field(default_factory=list)
+    bio: str = Field(default="")
+    year: str = Field(default="")
+    department: str = Field(default="")
+    avatar_initials: str = Field(default="")
+
+
+class Club(BaseModel):
+    """Club registered by a moderator."""
+
+    club_id: str
+    name: str
+    description: str
+    category: str = Field(default="General")
+    created_at: datetime = Field(default_factory=datetime.utcnow)
 
 
 class Event(BaseModel):
@@ -37,6 +51,7 @@ class Event(BaseModel):
     registered_count: int = Field(default=0, ge=0)
     registration_open_till: datetime
     time_slot: str
+    club_id: Optional[str] = Field(default=None)
 
 
 class RecommendationResult(BaseModel):
