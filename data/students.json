@@ -1,0 +1,98 @@
+[
+  {
+    "student_id": "student-001",
+    "full_name": "Aarav Mehta",
+    "college": "Tech Valley Institute",
+    "contact": "aarav@student.edu",
+    "password": "pass123",
+    "skills": [
+      "python",
+      "data_analysis",
+      "machine_learning"
+    ],
+    "interests": [
+      "hackathons",
+      "ai",
+      "open source"
+    ],
+    "goals": [
+      "learn",
+      "build"
+    ],
+    "available_slots": [
+      "sat-10:00",
+      "sun-14:00",
+      "fri-18:00"
+    ],
+    "bio": "Passionate about algorithms and building impactful tech.",
+    "year": "3rd Year",
+    "department": "Computer Science",
+    "avatar_initials": "AM",
+    "registered_events": [
+      "evt-001",
+      "evt-002"
+    ]
+  },
+  {
+    "student_id": "student-002",
+    "full_name": "Sneha Patel",
+    "college": "Tech Valley Institute",
+    "contact": "sneha@student.edu",
+    "password": "pass456",
+    "skills": [
+      "javascript",
+      "ui_ux",
+      "public_speaking"
+    ],
+    "interests": [
+      "design",
+      "web dev",
+      "debate"
+    ],
+    "goals": [
+      "network",
+      "build"
+    ],
+    "available_slots": [
+      "mon-09:00",
+      "wed-14:00",
+      "sat-10:00"
+    ],
+    "bio": "UI/UX enthusiast who loves building beautiful products.",
+    "year": "2nd Year",
+    "department": "Information Technology",
+    "avatar_initials": "SP",
+    "registered_events": []
+  },
+  {
+    "student_id": "student-003",
+    "full_name": "Rohan Verma",
+    "college": "Tech Valley Institute",
+    "contact": "rohan@student.edu",
+    "password": "pass789",
+    "skills": [
+      "cloud",
+      "python",
+      "data_analysis"
+    ],
+    "interests": [
+      "cloud computing",
+      "startups",
+      "finance"
+    ],
+    "goals": [
+      "compete",
+      "network"
+    ],
+    "available_slots": [
+      "tue-09:00",
+      "thu-14:00",
+      "sun-14:00"
+    ],
+    "bio": "Cloud enthusiast and competitive programmer.",
+    "year": "4th Year",
+    "department": "Computer Science",
+    "avatar_initials": "RV",
+    "registered_events": []
+  }
+]

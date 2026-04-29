@@ -1,0 +1,20 @@
+[
+  {
+    "moderator_id": "mod-001",
+    "full_name": "Dr. Priya Sharma",
+    "email": "priya@college.edu",
+    "password": "mod123",
+    "college": "Tech Valley Institute",
+    "department": "Computer Science",
+    "bio": "Faculty coordinator for technical clubs and hackathons."
+  },
+  {
+    "moderator_id": "mod-002",
+    "full_name": "Prof. Arjun Nair",
+    "email": "arjun@college.edu",
+    "password": "mod456",
+    "college": "Tech Valley Institute",
+    "department": "Electronics",
+    "bio": "Organiser of cultural and inter-college events."
+  }
+]

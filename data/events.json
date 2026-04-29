@@ -1,0 +1,184 @@
+[
+  {
+    "event_id": "evt-001",
+    "title": "National Hackathon 2025",
+    "description": "36-hour hackathon open to all students. Build innovative solutions for real-world problems. Cash prizes worth \u20b91,00,000.",
+    "skills_required": [
+      "python",
+      "javascript",
+      "machine_learning"
+    ],
+    "goal_tags": [
+      "build",
+      "compete"
+    ],
+    "scope": "inter_college",
+    "capacity_band": "large",
+    "capacity_limit": 200,
+    "registered_count": 48,
+    "registration_open_till": "2025-12-01 00:00:00+00:00",
+    "time_slot": "sat-10:00",
+    "club_id": "club-001",
+    "moderator_id": "mod-001",
+    "venue": "Main Auditorium",
+    "prize": "\u20b91,00,000 cash + internship offers"
+  },
+  {
+    "event_id": "evt-002",
+    "title": "Python for Data Science Workshop",
+    "description": "Hands-on workshop covering pandas, numpy, matplotlib and scikit-learn. Beginner friendly \u2014 no prior ML experience needed.",
+    "skills_required": [
+      "python",
+      "data_analysis"
+    ],
+    "goal_tags": [
+      "learn"
+    ],
+    "scope": "intra_college",
+    "capacity_band": "medium",
+    "capacity_limit": 60,
+    "registered_count": 24,
+    "registration_open_till": "2025-11-15 00:00:00+00:00",
+    "time_slot": "sun-14:00",
+    "club_id": "club-001",
+    "moderator_id": "mod-001",
+    "venue": "Lab Block 3, Room 301",
+    "prize": "Certificate of Participation"
+  },
+  {
+    "event_id": "evt-003",
+    "title": "UI/UX Design Sprint",
+    "description": "A 2-day design challenge where teams prototype solutions for social impact. Figma skills preferred but not required.",
+    "skills_required": [
+      "ui_ux",
+      "javascript"
+    ],
+    "goal_tags": [
+      "build",
+      "learn"
+    ],
+    "scope": "intra_college",
+    "capacity_band": "small",
+    "capacity_limit": 30,
+    "registered_count": 18,
+    "registration_open_till": "2025-11-20 00:00:00+00:00",
+    "time_slot": "sat-10:00",
+    "club_id": "club-002",
+    "moderator_id": "mod-001",
+    "venue": "Design Studio, Block A",
+    "prize": "Best Design Award + Goodies"
+  },
+  {
+    "event_id": "evt-004",
+    "title": "AWS Cloud Practitioner Bootcamp",
+    "description": "Intensive 1-day bootcamp covering AWS core services, IAM, EC2, S3, and Lambda. Exam vouchers for top performers.",
+    "skills_required": [
+      "cloud"
+    ],
+    "goal_tags": [
+      "learn",
+      "network"
+    ],
+    "scope": "inter_college",
+    "capacity_band": "medium",
+    "capacity_limit": 80,
+    "registered_count": 55,
+    "registration_open_till": "2025-11-25 00:00:00+00:00",
+    "time_slot": "sun-14:00",
+    "club_id": "club-003",
+    "moderator_id": "mod-002",
+    "venue": "Seminar Hall 2",
+    "prize": "AWS Exam Voucher (top 10)"
+  },
+  {
+    "event_id": "evt-005",
+    "title": "Inter-College Debate Championship",
+    "description": "Annual debate competition on technology and society. Teams of 2. Topics announced 48 hours before the event.",
+    "skills_required": [
+      "public_speaking"
+    ],
+    "goal_tags": [
+      "compete",
+      "network"
+    ],
+    "scope": "inter_college",
+    "capacity_band": "medium",
+    "capacity_limit": 50,
+    "registered_count": 12,
+    "registration_open_till": "2025-12-10 00:00:00+00:00",
+    "time_slot": "fri-18:00",
+    "club_id": "club-004",
+    "moderator_id": "mod-002",
+    "venue": "Conference Hall",
+    "prize": "Trophy + \u20b915,000"
+  },
+  {
+    "event_id": "evt-006",
+    "title": "ML Model Deployment Workshop",
+    "description": "Learn to deploy machine learning models using FastAPI, Docker, and cloud platforms. Build a production-ready ML pipeline.",
+    "skills_required": [
+      "machine_learning",
+      "python",
+      "cloud"
+    ],
+    "goal_tags": [
+      "learn",
+      "build"
+    ],
+    "scope": "intra_college",
+    "capacity_band": "small",
+    "capacity_limit": 25,
+    "registered_count": 10,
+    "registration_open_till": "2025-11-30 00:00:00+00:00",
+    "time_slot": "mon-09:00",
+    "club_id": "club-001",
+    "moderator_id": "mod-001",
+    "venue": "Lab Block 2, Room 205",
+    "prize": "Certificate + Project Showcase"
+  },
+  {
+    "event_id": "evt-007",
+    "title": "Open Mic: Tech Talks",
+    "description": "Share your ideas, projects, or research in a 5-minute lightning talk. Open to all departments. Great networking opportunity.",
+    "skills_required": [
+      "public_speaking"
+    ],
+    "goal_tags": [
+      "network",
+      "learn"
+    ],
+    "scope": "intra_college",
+    "capacity_band": "medium",
+    "capacity_limit": 40,
+    "registered_count": 8,
+    "registration_open_till": "2025-12-05 00:00:00+00:00",
+    "time_slot": "wed-14:00",
+    "club_id": "club-004",
+    "moderator_id": "mod-002",
+    "venue": "Amphitheatre",
+    "prize": "Best Speaker Award"
+  },
+  {
+    "event_id": "evt-008",
+    "title": "Competitive Programming Contest",
+    "description": "3-hour online coding contest with 5 algorithmic problems. Rated on Codeforces-style scoring. Individual participation.",
+    "skills_required": [
+      "python",
+      "javascript"
+    ],
+    "goal_tags": [
+      "compete",
+      "build"
+    ],
+    "scope": "inter_college",
+    "capacity_band": "large",
+    "capacity_limit": 150,
+    "registered_count": 89,
+    "registration_open_till": "2025-12-15 00:00:00+00:00",
+    "time_slot": "thu-14:00",
+    "club_id": "club-001",
+    "moderator_id": "mod-001",
+    "venue": "Online (HackerRank)",
+    "prize": "\u20b920,000 + Internship Referrals"
+  }
+]
