@@ -52,12 +52,15 @@ export default function StudentDashboard({ user, events, clubs, onEventsChange }
         body: JSON.stringify({ student_id: user.user_id, event_id: eventId }),
       })
       const data = await res.json()
-      if (!res.ok) throw new Error(data.detail || 'Registration failed')
+      if (!res.ok) {
+        const message = data.detail || data.message || 'Registration failed'
+        throw new Error(message)
+      }
       setRegisteredIds(prev => [...prev, eventId])
       onEventsChange()
-      showToast(data.message, 'success')
+      showToast(data.message || 'Successfully registered for event', 'success')
     } catch (err) {
-      showToast(err.message, 'error')
+      showToast(err.message || 'Registration failed. Please try again.', 'error')
     } finally {
       setLoading(false)
     }
@@ -85,13 +88,23 @@ export default function StudentDashboard({ user, events, clubs, onEventsChange }
 
   const handleSearch = async (e) => {
     e.preventDefault()
-    if (!query.trim()) return
+    if (!query.trim()) {
+      showToast('Please enter a search query', 'error')
+      return
+    }
     setSearchLoading(true)
     try {
       const res = await fetch(`${API_BASE}/search?q=${encodeURIComponent(query)}`)
-      if (!res.ok) throw new Error('Search failed')
-      setSearchResults(await res.json())
+      if (!res.ok) {
+        const data = await res.json()
+        throw new Error(data.detail || 'Search failed')
+      }
+      const results = await res.json()
+      setSearchResults(results)
       setTab('search')
+      if (results.length === 0) {
+        showToast('No events matched your search', 'info')
+      }
     } catch (err) {
       showToast(err.message, 'error')
     } finally {

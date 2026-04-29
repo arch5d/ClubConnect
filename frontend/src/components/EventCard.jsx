@@ -5,6 +5,7 @@ export default function EventCard({ event, clubs = [], isRegistered = false, onR
   const club = clubs.find(c => c.club_id === event.club_id)
   const full = isFull(event)
   const left = spotsLeft(event)
+  const registrationClosed = new Date(event.registration_open_till) < new Date()
 
   if (compact) {
     return (
@@ -31,6 +32,11 @@ export default function EventCard({ event, clubs = [], isRegistered = false, onR
               </span>
             )}
             <ScopeBadge scope={event.scope} />
+            {registrationClosed && (
+              <span className="rounded border border-red-700/40 bg-red-900/30 px-2 py-0.5 text-xs text-red-300">
+                Registration Closed
+              </span>
+            )}
             {full && (
               <span className="rounded border border-red-700/40 bg-red-900/30 px-2 py-0.5 text-xs text-red-300">
                 Full
@@ -74,10 +80,10 @@ export default function EventCard({ event, clubs = [], isRegistered = false, onR
           {onRegister && !isRegistered && (
             <button
               onClick={() => onRegister(event.event_id)}
-              disabled={full}
+              disabled={full || registrationClosed}
               className="rounded-lg bg-emerald-500 px-4 py-1.5 text-sm font-medium text-zinc-950 hover:bg-emerald-400 disabled:cursor-not-allowed disabled:opacity-40 transition"
             >
-              {full ? 'Event Full' : `Register · ${left} spot${left !== 1 ? 's' : ''} left`}
+              {registrationClosed ? 'Registration Closed' : full ? 'Event Full' : `Register · ${left} spot${left !== 1 ? 's' : ''} left`}
             </button>
           )}
           {onUnregister && isRegistered && (

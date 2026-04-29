@@ -330,6 +330,9 @@ def health() -> dict:
 @app.post("/auth/login", response_model=LoginResponse)
 def login(req: LoginRequest) -> LoginResponse:
     """Authenticate student or moderator by email + password."""
+    if not req.email or not req.password:
+        raise HTTPException(status_code=400, detail="Email and password are required")
+    
     if req.role == "student":
         for profile in student_service.profiles.values():
             if profile.contact.lower() == req.email.lower() and profile.password == req.password:
@@ -355,6 +358,8 @@ def login(req: LoginRequest) -> LoginResponse:
 
 @app.post("/students/profile", response_model=StudentProfile)
 def create_student_profile(profile: StudentProfile) -> StudentProfile:
+    if not profile.student_id or not profile.full_name or not profile.contact:
+        raise HTTPException(status_code=400, detail="student_id, full_name, and contact are required")
     result = student_service.create_profile(profile)
     save_students(student_service.profiles)
     return result
@@ -395,6 +400,11 @@ def register_for_event(req: RegisterEventRequest) -> dict:
     event = next((e for e in EVENT_STORE if e.event_id == req.event_id), None)
     if event is None:
         raise HTTPException(status_code=404, detail="event not found")
+
+    # Check if registration deadline has passed
+    current_time = datetime.now(timezone.utc)
+    if current_time > event.registration_open_till:
+        raise HTTPException(status_code=400, detail="Registration deadline has passed for this event")
 
     if req.event_id in profile.registered_events:
         raise HTTPException(status_code=409, detail="already registered")
@@ -447,6 +457,8 @@ def unregister_from_event(req: RegisterEventRequest) -> dict:
 
 @app.post("/clubs", response_model=Club)
 def create_club(club: Club) -> Club:
+    if not club.club_id or not club.name:
+        raise HTTPException(status_code=400, detail="club_id and name are required")
     CLUB_STORE[club.club_id] = club
     save_clubs(CLUB_STORE)
     return club
@@ -478,6 +490,12 @@ def delete_club(club_id: str) -> dict:
 
 @app.post("/events", response_model=Event)
 def create_event(event: Event) -> Event:
+    if not event.event_id or not event.title:
+        raise HTTPException(status_code=400, detail="event_id and title are required")
+    if event.capacity_limit <= 0:
+        raise HTTPException(status_code=400, detail="capacity_limit must be greater than 0")
+    if event.registered_count < 0:
+        raise HTTPException(status_code=400, detail="registered_count cannot be negative")
     EVENT_STORE.append(event)
     save_events(EVENT_STORE)
     return event
@@ -486,6 +504,28 @@ def create_event(event: Event) -> Event:
 @app.get("/events", response_model=list[Event])
 def list_events() -> list[Event]:
     return EVENT_STORE
+
+
+@app.get("/events/{event_id}", response_model=Event)
+def get_event(event_id: str) -> Event:
+    event = next((e for e in EVENT_STORE if e.event_id == event_id), None)
+    if event is None:
+        raise HTTPException(status_code=404, detail="event not found")
+    return event
+
+
+@app.get("/events/{event_id}/registrations", response_model=list[str])
+def get_event_registrations(event_id: str) -> list[str]:
+    """Get list of student IDs registered for a specific event."""
+    event = next((e for e in EVENT_STORE if e.event_id == event_id), None)
+    if event is None:
+        raise HTTPException(status_code=404, detail="event not found")
+    
+    registered_students = [
+        student_id for student_id, profile in student_service.profiles.items()
+        if event_id in profile.registered_events
+    ]
+    return registered_students
 
 
 @app.delete("/events/{event_id}")
@@ -500,11 +540,15 @@ def delete_event(event_id: str) -> dict:
 
 @app.get("/search", response_model=list[Event])
 def search_events(q: str) -> list[Event]:
+    if not q or not q.strip():
+        raise HTTPException(status_code=400, detail="Search query cannot be empty")
     return student_service.browse_events(events=EVENT_STORE, query=q, algorithm="kmp")
 
 
 @app.post("/events/search", response_model=list[Event])
 def search_events_advanced(payload: SearchQuery) -> list[Event]:
+    if not payload.query or not payload.query.strip():
+        raise HTTPException(status_code=400, detail="Search query cannot be empty")
     if payload.algorithm.lower() not in {"kmp", "rabin_karp"}:
         raise HTTPException(status_code=400, detail="algorithm must be kmp or rabin_karp")
     return student_service.browse_events(

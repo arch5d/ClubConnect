@@ -8,13 +8,26 @@ import ModeratorDashboard from './components/ModeratorDashboard'
 import { Avatar, Spinner } from './components/ui'
 
 export default function App() {
-  const [user, setUser] = useState(null)          // { user_id, role, full_name }
+  const [user, setUser] = useState(() => {
+    // Restore user from localStorage on initial load
+    const stored = localStorage.getItem('user')
+    return stored ? JSON.parse(stored) : null
+  })
   const [activeTab, setActiveTab] = useState('dashboard')
   const [events, setEvents] = useState([])
   const [clubs, setClubs] = useState([])
   const [studentProfile, setStudentProfile] = useState(null)
   const [bootstrapping, setBootstrapping] = useState(false)
   const [globalFeedback, setGlobalFeedback] = useState('')
+
+  // Persist user to localStorage whenever it changes
+  useEffect(() => {
+    if (user) {
+      localStorage.setItem('user', JSON.stringify(user))
+    } else {
+      localStorage.removeItem('user')
+    }
+  }, [user])
 
   const loadEvents = async () => {
     const res = await fetch(`${API_BASE}/events`)

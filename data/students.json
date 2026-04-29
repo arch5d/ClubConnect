@@ -28,10 +28,7 @@
     "year": "3rd Year",
     "department": "Computer Science",
     "avatar_initials": "AM",
-    "registered_events": [
-      "evt-001",
-      "evt-002"
-    ]
+    "registered_events": []
   },
   {
     "student_id": "student-002",

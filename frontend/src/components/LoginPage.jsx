@@ -28,6 +28,10 @@ export default function LoginPage({ onLogin }) {
 
   const handleSubmit = async (e) => {
     e.preventDefault()
+    if (!email.trim() || !password.trim()) {
+      setError('Email and password cannot be empty')
+      return
+    }
     setError('')
     setLoading(true)
     try {
@@ -37,10 +41,10 @@ export default function LoginPage({ onLogin }) {
         body: JSON.stringify({ email, password, role }),
       })
       const data = await res.json()
-      if (!res.ok) throw new Error(data.detail || 'Login failed')
+      if (!res.ok) throw new Error(data.detail || 'Login failed. Please check your credentials.')
       onLogin(data)
     } catch (err) {
-      setError(err.message)
+      setError(err.message || 'Login failed. Please try again.')
     } finally {
       setLoading(false)
     }
